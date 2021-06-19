@@ -1,0 +1,27 @@
+.mainDiv{
+    width: 25rem;
+    height: 25rem;
+    border: solid black 3px;
+    margin: 2rem;
+}
+.headerDiv{
+    height: 2rem;
+}
+
+.profilePic{
+    width: 10rem;
+    border: black solid 1px;
+   
+  
+}
+.headerName{
+    position: relative;
+    left: 10rem;
+    margin-left: auto;
+    bottom:10rem
+}
+.parentDiv{
+    width: 100rem;
+   margin-left: auto;
+   margin-right: auto;
+}
