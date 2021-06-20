@@ -4,6 +4,7 @@ import API from "../utils/API"
 import Topbar from "./topBar";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './apiCall.css'
+import './apiCallResponsive.css'
 let sort= "unSorted"
 let genFilter;
 let maleArr=[]
@@ -16,16 +17,19 @@ class ApiCall extends Component{
         alreadyFitered: false
     }
     componentDidMount(){
+        for (let i=0; i<20; i++){
+
+        
         fetch('https://randomuser.me/api/')
             .then(res=>res.json())
             .then(json=>{
                 const newUser=[json]
                 this.setState({
                     isLoaded: true,
-                    users: newUser
+                    users: this.state.users.concat(newUser)
                 })
             })
-
+        }
     }
     handleReGen=()=>{
         
@@ -157,6 +161,7 @@ class ApiCall extends Component{
                 handleReGen={ this.handleReGen} 
                 sortByAge={this.sortByAge}
                 filterGender={this.filterGender}
+                userArr={users}
                 />
                 <div className='row parentDiv'>
                 {users.map((value, index)=>{
@@ -168,11 +173,13 @@ class ApiCall extends Component{
                             <h2 className='h2 headerName'>{value.results[0].name.first}</h2>
                             <h2 className='h2 headerName'>{value.results[0].name.last}</h2>
                         </div>
-                        <p>Age: {value.results[0].dob.age}</p>
-                        <p>Gender: {value.results[0].gender}</p>
-                        <p>Lives: {value.results[0].location.city}, {value.results[0].location.country}</p>
-                        <p>Email: {value.results[0].email}</p>
-                        <p>Phone: {value.results[0].cell}</p>
+                        <div className='lowerDiv'>
+                        <p className='lowerDivFonts'><span className='BaseText'>Age: </span>{value.results[0].dob.age}</p>
+                        <p className='lowerDivFonts'><span className='BaseText'>Gender:</span> {value.results[0].gender}</p>
+                        <p className='lowerDivFonts'><span className='BaseText'>Lives:</span> {value.results[0].location.city}, {value.results[0].location.country}</p>
+                        <p className='lowerDivFonts'><span className='BaseText'>Email:</span> {value.results[0].email}</p>
+                        <p className='lowerDivFonts'><span className='BaseText'>Phone:</span> {value.results[0].cell}</p>
+                        </div>
                     </div>
                     )
 

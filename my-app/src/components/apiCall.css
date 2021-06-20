@@ -3,6 +3,7 @@
     height: 25rem;
     border: solid black 3px;
     margin: 2rem;
+    background-color: gray;
 }
 .headerDiv{
     height: 2rem;
@@ -24,4 +25,18 @@
     width: 100rem;
    margin-left: auto;
    margin-right: auto;
+}
+.lowerDiv{
+    position: absolute;
+    top:10rem;
+    width: 23rem;
+    background-color: hsl(24, 5%, 78%);
+}
+.lowerDivFonts{
+    font-size: larger;
+    font-style: italic;
+}
+.BaseText{
+    font-weight:  bolder;
+    font-style: normal;
 }
